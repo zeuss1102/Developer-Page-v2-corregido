@@ -71,10 +71,10 @@ h3 {
 
 .contenedor {
     max-width: 120rem;
-    /* margin-top: 0px; *
+    margin-top: 0px; 
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 0px;*/
+    margin-bottom: 0px;
     margin: 0 auto;
 }
 
@@ -84,7 +84,7 @@ h3 {
 
 .navegacion-principal {
 
-    display: inline-flex;
+    display: inline-flex; /* no va el inline-flex, solo debe ir el flex*/
     flex-direction: column;
     /*justify-content sirve para las filas(row) y align-items sirve para las columnas*/
     justify-content: space-between;
