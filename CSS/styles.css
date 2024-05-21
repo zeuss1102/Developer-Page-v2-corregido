@@ -1,0 +1,344 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    /*custom propeties*/
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3
+
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /*hack para el manejo de box model*/
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+    scroll-snap-type: y mandatory; /*y simbolisa que el scrooll sera de manera vertical. Mandatpry define que tan estricto se requiere el scroll*/
+}
+/* Scroll snap */
+.titulo, .servicios-heading, .contacto-heading{
+    scroll-snap-align: start;/* Indica el punto en el contenedor de desplazamiento al que 
+    debe ajustarse el contenido*/
+    scroll-snap-stop: always; /*Controla si el desplazamiento debe detenerse siempre en 
+    los puntos de ajuste */
+}
+
+/*hack para el manejo de bos model*/
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+}
+
+.sombra{
+    /*sombra del elemento en el body*/
+    box-shadow: 0px 0px 15px 0px rgba(112,112,112,.48);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(112,112,112,0.48);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 2rem;/*esquinas interior*/
+    border-radius: 1rem;/* esquinas redondas*/
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+
+.titulo span {
+    font-size: 2rem;
+}
+
+.contenedor {
+    max-width: 120rem;
+    /* margin-top: 0px; *
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0px;*/
+    margin: 0 auto;
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+
+    display: inline-flex;
+    flex-direction: column;
+    /*justify-content sirve para las filas(row) y align-items sirve para las columnas*/
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 2rem;
+    /* alinea los items cuando la página esta en 760px*/
+    align-items: center;
+
+}
+
+/* media cueri, hover, responsive, flex, 06-11-2023 */
+
+.navegacion-principal a {
+    padding: 1rem;
+    color: var(--blanco);
+    text-decoration: none;
+    /*quita el subrayado a las letras*/
+}
+
+/* ":" pseudo-clase */
+.navegacion-principal a:hover {
+    /* con el hover ponemos la interaccion cuando el mause pasa robre el elemento*/
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+
+@media (min-width: 760px) {
+    .navegacion-principal {
+        flex-direction: row;
+    }
+}
+
+/*hero*/
+
+.hero {
+    background-image: url(../img/hero.png);
+    /* "../" es para regresar a un nivel de directorio, la carpeta img está afuera de CSS */
+    background-repeat: no-repeat;
+    /* para evitar que la imagen se repita si se hace zoom out*/
+    background-size: cover;
+    height: 450px;
+    /*alto del elemento hero*/
+    position: relative;
+    /* el padre debe ser relative */
+    margin-bottom: 2rem;/*Margen inferior para separar hacia abajo*/
+
+
+}
+
+.contenido-hero {
+    position: absolute;
+    /* el hijo debe ser absolute */
+    background-color: rgba(0, 0, 0, .7);
+    /* el .7 es el 70% de transparencia */
+    width: 100%;
+    height: 100%;
+    /*alinear vertica y horizontalmente*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.contenido-hero p,
+.contenido-hero h2 {
+    color: var(--blanco);
+
+
+}
+
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+.boton{
+    background-color: var(--secundario);/* color del fondo del boton*/
+    text-decoration: none;/*quitar subrayado*/
+    padding: 1rem 3rem;/*espacio interior*/
+    border-radius: .5rem;/*espacio exteriror hacia arriba*/
+    color: var(--blanco);/*color de la letra*/
+    margin-top: 3rem;/*en negrita*/
+    font-weight: bold;/* en negritas */
+    font-size: 2rem;/* tamanño de la letra */
+    text-transform: uppercase;/*poner en mayúscula*/
+    text-align: center;/* centrar el texto */
+    width: 90%;/*ancho del boton que abarque el 90% si la pantalla es pequeña*/
+
+}
+
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+
+/*servicios*/
+
+
+
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);/*separar en columnas el 3: la cantidad de columnas, y 1fr*/
+        column-gap: 1rem;/*distancia entre columnas(gap)*/
+    }
+ 
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p{
+    line-height: 2;/* interlineado */
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+/*Contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*ahorra media querys*/
+    margin-top: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;    
+    
+}
+
+.formulario fieldset{
+    border: none;
+    
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: var(--primario);
+    align-items: center;
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block; /*hace que cada label tome todo el espacio disponible y estar separado del input*/
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.campo textarea{
+    height: 20rem; /*hace mas grande la altura del textarea*/
+}
+
+.boton{
+    background-color: var(--secundario);/*color de fondo del botón*/
+    color: var(--blanco); /*color del texto*/
+    padding: 1rem 3rem;/*espacio interior*/
+    margin-top: 3rem;/*separación superior*/
+    font-size: 2rem;/*tamañ de la letra*/
+    text-decoration: none;/*quitar el subrayado*/
+    text-transform: uppercase;/*convertir texto en mayúscula*/
+    font-weight: bold;/*texto en negritas*/
+    border-radius: .5rem;/*esquinas redondeadas*/
+    width: 90%;/*ancho del botón, que abarque el 90% posible si se encuetra en una pantalla pequeña*/
+    text-align: center;/*centrar el texto*/
+    border: none;/*Esto afecta únicamente al boton de la etiqueta "input", si esta 
+    propiedad no existe en el enlace "a" , simplemente lo ignora*/
+}
+
+@media (min-width: 768px) {
+ .boton{
+    width: auto;
+ }
+}
+
+.boton:hover{
+    cursor: pointer;/*cambie la felchita por la mano*/
+}
+
+/*UTILIDADES*/
+.w-sm-100{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+ .w-sm-100{
+    width: auto;
+ }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 1rem;
+        grid-template-rows: auto auto 20rem; /* darle el espacio de cada fila*/
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1/3; /* Para posicionar el elemento, "que vaya de la columna 1 a la 
+   3*/
+    }
+   }
+
+   /*footer*/
+   .footer{
+    text-align: center;
+   }
+
+
+   
