@@ -84,7 +84,7 @@ h3 {
 
 .navegacion-principal {
 
-    display: inline-flex; /* no va el inline-flex, solo debe ir el flex*/
+    display: flex; /* no va el inline-flex, solo debe ir el flex*/
     flex-direction: column;
     /*justify-content sirve para las filas(row) y align-items sirve para las columnas*/
     justify-content: space-between;
